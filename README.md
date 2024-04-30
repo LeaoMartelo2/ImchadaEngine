@@ -4,11 +4,16 @@ A C++ Linux terminal game engine, based of a old [project of mine](https://githu
 
 
 
-## Compiling
+## Compiling projects with the engine.
 
 	W.I.P
 
 ## Using the Engine
 
-	W.I.P
+
+This is a simple guide on how to use the engine in your project.
+
+- Copy/Symlink the engine/Imchada folder to your project source.
+- include the wanted/required features of the engine on your file
+	 <sup>(ex: `#include "../Imchada/sample.h"` or whatever fits your project) <sup/>
 
