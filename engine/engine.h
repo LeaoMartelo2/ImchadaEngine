@@ -16,6 +16,8 @@ public:
   bool get_debug_state();
   bool get_verbose_state();
   bool get_logging_state();
+
+  void setup_engine();
 };
 } // namespace Imchada
 

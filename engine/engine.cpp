@@ -1,4 +1,5 @@
 #include "engine.h"
+#include <ncurses.h>
 
 void Imchada::Engine::set_debug(bool state) {
   Imchada::Engine::m_isDebug = state;
@@ -26,3 +27,5 @@ bool Imchada::Engine::get_logging_state() {
   // probabbly need to find a better way to do this
   return Imchada::Engine::m_isLogging;
 }
+
+void Imchada::Engine::setup_engine() {}
