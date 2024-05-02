@@ -13,21 +13,12 @@ A C++ Linux terminal game engine, based of a old [project of mine](https://githu
 
 This is a simple guide on how to use the engine in your project.
 
-- Clone the engine repository in the directory you want to work with your project in, as this is also a workspace for the engine.
-- In the `"game"` directory, you will add your own code, sprites, scripts for the game using the engine.
+- Clone the repository in your working directory.
 
-- Games using the Engine must include the "master" engine header (`#include "../engine/ImchadaEngine.h"`).
+- Your game specific code goes in the `game_src` directory, keep in mind that you'll need to update the `Makefile` accordingly to your project.
 
-- If you do not wish to  include the whole engine on your project, you can do so following the example bellow. Keep in mind that you will need to update the `Makefile` accordingly after doing so.
+	 - You need to include the engine headers in to your files, usually done by `#include "../engine/engine.h"`, `engine.h` being the main header of the engine itself.
+	 - If you only need a specific part of the engine, make sure to only include the needed parts of it, to make your project more organized, and have faster build times as a result, make sure to update the relevant `Makefile`(s) accordingly.
+	 
+- **IF** you need to modify the engine itself to make it modular to your project, you can run `make update` to update the library. Keep in mind you'll need to update the relevant `Makefile`(s) to your changes.
 
-	 `#include "../engine/example.h"` 
-	 ##### ( game/src/main.cpp used as example file)
-
-
-- Adjust the Makefile to your project.
-
-
-- Modify/Delete/Add engine files as you please/require for your project, don't be afraid to re-make it entirely if needed.
-
-
-- Clean up the Makefile for faster compile times **(important)**.
