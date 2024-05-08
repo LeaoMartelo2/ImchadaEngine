@@ -6,9 +6,9 @@
 namespace Imchada {
 class Instance {
 private:
-  bool m_isDebug;
-  bool m_isVerbose;
-  bool m_isLogging;
+  bool m_isDebug = false;
+  bool m_isVerbose = false;
+  bool m_isLogging = false;
 
 public:
   void set_debug(bool state);
@@ -27,7 +27,7 @@ public:
 
 namespace Imchada {
 
-void process_arguments(const Instance &Current, int argc, char *argv[]);
+void process_arguments(Instance &current, int argc, char *argv[]);
 
 }
 
