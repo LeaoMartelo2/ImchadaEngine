@@ -1,6 +1,8 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
+// ENGINE_INSTANCE
+
 namespace Imchada {
 class Instance {
 private:
