@@ -23,4 +23,12 @@ public:
 };
 } // namespace Imchada
 
+// ARGUMENTS
+
+namespace Imchada {
+
+void process_arguments(const Instance &Current, int argc, char *argv[]);
+
+}
+
 #endif // !ENGINE_H
