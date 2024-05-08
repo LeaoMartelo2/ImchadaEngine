@@ -4,9 +4,9 @@ LIB_FOLDER = ../engine_lib/
 OBJ = obj/
 
 
-update: ${OBJ}engine_instance.o
+update: ${OBJ}engine.o
 	ar rcs ../engine_lib/libImchadaEngine.a $^
 
 
-${OBJ}engine_instance.o: engine_instance.cpp
+${OBJ}engine.o: engine.cpp
 	${CC} ${FLAGS} -c $^ -o $@
