@@ -19,16 +19,8 @@ public:
   bool get_verbose_state();
   bool get_logging_state();
 
-  void setup_engine();
+  void process_arguments(int argc, char *argv[]);
 };
 } // namespace Imchada
-
-// ARGUMENTS
-
-namespace Imchada {
-
-void process_arguments(Instance &current, int argc, char *argv[]);
-
-}
 
 #endif // !ENGINE_H
