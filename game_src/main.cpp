@@ -4,7 +4,7 @@
 
 int main(int argc, char **argv) {
 
-  Imchada::Instance example;
+  Imchada::Instance example(argc, argv);
 
   std::cout << example.get_debug_state() << std::endl;
 

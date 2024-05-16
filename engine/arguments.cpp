@@ -1,23 +1,38 @@
-// void Instance::process_arguments(int argc, char *argv[]) {
+#include "engine.h"
+#include <cstdlib>
+#include <cstring>
 
-/* add your custom - arguments here
-const char *argument_comparelist[] = {"-debug", "-verbose", "-log",
-                                      "-example"};
- check for your custom arguments here
-for (int i = 0; i < argc; i++) {
-  if (strcmp(argv[i], argument_comparelist[0]) == 0) { //-debug
-    Instance::set_debug(true);
-  }
-  if (strcmp(argv[i], argument_comparelist[1]) == 0) { //-verbose
-    Instance::set_verbose(true);
-  }
-  if (strcmp(argv[i], argument_comparelist[2]) == 0) {
-    Instance::set_logging(true);
-  }
-  if (strcmp(argv[i], argument_comparelist[3]) == 0) {
+namespace Imchada {
 
+void Instance::process_arguments(int argc, char *argv[]) {
+
+  /*add your custom arguments here */
+
+  for (int i = 0; i < argc; i++) {
+    if (strcmp(argv[i], "-debug") == 0) {
+      set_debug(true);
+    } else {
+      set_debug(false);
+    }
+
+    if (strcmp(argv[i], "-verbose") == 0) {
+      set_verbose(true);
+    } else {
+      set_verbose(false);
+    }
+
+    if (strcmp(argv[i], "-log") == 0) {
+      set_logging_level(atoi(argv[i + 1])); // probably should add some checks
+    } else {
+      set_logging_level(0);
+    }
+
+    if (strcmp(argv[i], "-example") == 0) {
+      // example
+    } else {
+      // !example
+    }
   }
 }
-}
-}
-*/
+
+} // namespace Imchada
