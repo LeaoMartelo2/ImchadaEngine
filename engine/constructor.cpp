@@ -2,6 +2,13 @@
 
 namespace Imchada {
 
-Instance::Instance(int argc, char *argv[]) { process_arguments(argc, argv); }
+Instance::Instance(int argc, char *argv[]) {
+
+  m_logging_level = 0;
+  m_isVerbose = false;
+  m_isDebug = false;
+
+  process_arguments(argc, argv);
+}
 
 } // namespace Imchada
