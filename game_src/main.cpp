@@ -2,9 +2,13 @@
 #include "include/example.h"
 #include <iostream>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char **argv) {
 
   Imchada::Instance example;
+
+  std::cout << example.get_debug_state() << std::endl;
+
+  example.set_debug(true);
 
   std::cout << example.get_debug_state() << std::endl;
 
