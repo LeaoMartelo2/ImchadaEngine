@@ -4,18 +4,18 @@
 namespace Imchada {
 class Instance {
 private:
-  bool m_isDebug = false;
+  bool m_isDebug;
   bool m_isVerbose;
-  bool m_isLogging;
+  int m_logging_level;
 
 public:
   void set_debug(bool state);
   void set_verbose(bool state);
-  void set_logging(bool state);
+  void set_logging_level(int level);
 
   bool get_debug_state();
   bool get_verbose_state();
-  bool get_logging_state();
+  int get_logging_level();
 
   //  void process_arguments(int argc, char *argv[]);
 };

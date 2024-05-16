@@ -17,7 +17,7 @@ example.o: ${GAME_INCLUDE}example.cpp
 	${CC} ${FLAGS} -c $^ -o $@
 
 clear:
-	rm *.o
+	rm *.o ${PROJECT_NAME}
 
 
 #g++ main.o example.o  -o TEST -lncurses -lImchadaEngine -L ../engine_lib/ -Wl,-rpath,../engine_lib/

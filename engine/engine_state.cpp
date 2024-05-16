@@ -1,5 +1,12 @@
 #include "engine.h"
 
-void Imchada::Instance::set_debug(bool state) { m_isDebug = state; }
+namespace Imchada {
+void Instance::set_debug(bool state) { m_isDebug = state; }
+bool Instance::get_debug_state() { return m_isDebug; }
 
-bool Imchada::Instance::get_debug_state() { return m_isDebug; }
+void Instance::set_verbose(bool state) { m_isVerbose = state; }
+bool Instance::get_verbose_state() { return m_isVerbose; }
+
+void Instance::set_logging_level(int level) { m_logging_level = level; }
+int Instance::get_logging_level() { return m_logging_level; }
+} // namespace Imchada
