@@ -36,10 +36,6 @@ void imchada_log(std::string log_message, unsigned short log_level);
 
 void imchada_log(char *message, unsigned short log_level);
 
-// utils
-
-int ascii_to_int(char ascii_int);
-
 } // namespace Imchada
 
 #endif // !ENGINE_H

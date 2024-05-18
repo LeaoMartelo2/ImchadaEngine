@@ -5,7 +5,7 @@ OBJ = obj/
 
 
 update: ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.o
-	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fpic -shared $^
+	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fPIC -shared $^
 
 
 ${OBJ}engine_state.o: engine_state.cpp
