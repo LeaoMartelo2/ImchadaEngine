@@ -18,7 +18,10 @@ void Instance::process_arguments(int argc, char *argv[]) {
     }
 
     if (strcmp(argv[i], "-log") == 0) {
-      set_logging_level(atoi(argv[i + 1])); // probably should add some checks
+      if (atoi(argv[i + 1]) > MAX_LOGGING_LEVEL && atoi(argv[i + 1]) > -1) {
+        set_logging_level(
+            atoi(argv[i + 1])); // probably should add some more checks
+      }
     }
 
     if (strcmp(argv[i], "-example") == 0) {

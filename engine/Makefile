@@ -4,7 +4,7 @@ LIB_FOLDER = ../engine_lib/
 OBJ = obj/
 
 
-update: ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o
+update: ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.o
 	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fpic -shared $^
 
 
@@ -16,3 +16,6 @@ ${OBJ}arguments.o: arguments.cpp
 
 ${OBJ}constructor.o: constructor.cpp
 	${CC} ${FLAGS} -c $^ -o $@ 
+
+${OBJ}logging.o: logging.cpp
+	${CC} ${FLAGS} -c $^ -o $@

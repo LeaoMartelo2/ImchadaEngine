@@ -14,5 +14,8 @@ int main(int argc, char **argv) {
 
   std::cout << "Hello World from main file\n";
   hello_world();
+
+  std::cout << example.get_logging_level() << std::endl;
+
   return 0;
 }
