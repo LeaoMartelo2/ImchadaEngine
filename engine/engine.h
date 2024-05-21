@@ -18,6 +18,8 @@ private:
 
   void process_arguments(int argc, char *argv[]);
 
+  char scene[30][30];
+
 public:
   Instance(int argc, char *argv[]);
 
