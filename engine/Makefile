@@ -1,5 +1,5 @@
 CC= g++
-FLAGS = -lncurses -Wall
+FLAGS = -lncurses -Wall -fPIC
 LIB_FOLDER = ../engine_lib/
 OBJ = obj/
 
