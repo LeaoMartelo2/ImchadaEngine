@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include <cstring>
+#include <fstream>
 #include <iostream>
 #include <stdio.h>
 #include <vector>
@@ -46,13 +47,13 @@ public:
 
   int load_scene(int scene_id); // loads the scene for the given scene id
 
+  void setup_scenes(); // map display, hud, debug info, logs and etc
+
   void reload_current(); // reloads the current scene
 
 }; // Instance
 
 void imchada_log(std::string log_message, int log_level);
-
-void imchada_log(char *message, int log_level);
 
 } // namespace Imchada
 
