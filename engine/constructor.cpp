@@ -4,7 +4,7 @@ namespace Imchada {
 
 Instance::Instance(int argc, char *argv[]) {
 
-  m_logging_level = 0;
+  m_Logging = false;
   m_isVerbose = false;
   m_isDebug = false;
 

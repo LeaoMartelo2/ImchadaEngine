@@ -16,7 +16,8 @@ class Instance {
 private:
   bool m_isDebug;
   bool m_isVerbose;
-  int m_logging_level;
+  //  int m_logging_level;
+  bool m_Logging;
 
   void process_arguments(int argc, char *argv[]);
 
@@ -25,11 +26,17 @@ public:
 
   void set_debug(bool state);
   void set_verbose(bool state);
-  void set_logging_level(int level);
+  // void set_logging_level(int level);
+  void set_logging(bool state);
 
   bool get_debug_state();
   bool get_verbose_state();
-  int get_logging_level();
+  // int get_logging_level();
+  bool get_logging_state();
+
+  // logging stuff
+
+  void imchada_log(std::string log_message, int log_level);
 
   // scene stuff
   /*  @TODO  */
@@ -52,8 +59,6 @@ public:
   void reload_current(); // reloads the current scene
 
 }; // Instance
-
-void imchada_log(std::string log_message, int log_level);
 
 } // namespace Imchada
 

@@ -15,11 +15,11 @@ int main(int argc, char **argv) {
   std::cout << "Hello World from main file\n";
   hello_world();
 
-  Imchada::imchada_log("teste", 0);
-  Imchada::imchada_log("teste 1", 1);
-  Imchada::imchada_log("teste 2", 2);
+  example.imchada_log("teste", 0);
+  example.imchada_log("teste 1", 1);
+  example.imchada_log("teste 2", 2);
 
-  std::cout << example.get_logging_level() << std::endl;
+  std::cout << example.get_debug_state() << std::endl;
 
   return 0;
 }

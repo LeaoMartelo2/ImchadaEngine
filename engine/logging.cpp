@@ -1,4 +1,7 @@
 #include "engine.h"
+#include <chrono>
+#include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <iostream>
 
@@ -8,7 +11,27 @@ const char *logLevel_header = "[ImchadaEngine]: ";
 const char *logLevel_error = "[ImchadaEngine][ERROR]: ";
 const char *logLevel_warn = "[ImchadaEngine][WARN]: ";
 
-void imchada_log(std::string log_message, int log_level) {
+void Instance::imchada_log(std::string log_message, int log_level) {
+
+  if (!get_logging_state()) {
+    return;
+  }
+
+  /* get system time chrono magic */
+
+  // get sys time
+  auto now = std::chrono::system_clock::now();
+
+  // convert it to time_point UTC standart
+  std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+
+  // convert utc to local time struct, or whatever that means didnt understarnd
+  // it yet
+  std::tm *local_time = std::localtime(&now_c);
+
+  int hour = local_time->tm_hour;  // Hour of the day (24-hour format)
+  int minute = local_time->tm_min; // Minute of the hour
+  int second = local_time->tm_sec; // Second of the minute
 
   std::fstream file("latest.log", std::ios::app); // open file in append mode
 
@@ -36,7 +59,10 @@ void imchada_log(std::string log_message, int log_level) {
     break;
   }
 
-  file << temp_log_header << log_message << std::endl;
+  /* this step builds the message to be printed in the log file */
+
+  file << "[" << hour << ":" << minute << ":" << second << "]"
+       << temp_log_header << log_message << std::endl;
 
   file.close();
 }
