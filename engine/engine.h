@@ -18,7 +18,7 @@ private:
 
   void process_arguments(int argc, char *argv[]);
 
-  char scene[30][30];
+  char scene[30][80];
 
 public:
   Instance(int argc, char *argv[]);
@@ -34,9 +34,9 @@ public:
 
 // logging
 
-void imchada_log(std::string log_message, unsigned short log_level);
+void imchada_log(std::string log_message, int log_level);
 
-void imchada_log(char *message, unsigned short log_level);
+void imchada_log(char *message, int log_level);
 
 } // namespace Imchada
 
