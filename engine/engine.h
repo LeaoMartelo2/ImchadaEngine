@@ -8,8 +8,9 @@
 #include <vector>
 
 #define MAX_LOGGING_LEVEL 2
-#define LOG_ERROR 1
-#define LOG_WARN 2
+#define LOG_ERROR Imchada::Instance::LogLevel::ERROR
+#define LOG_WARN Imchada::Instance::LogLevel::WARNING
+#define LOG_MESSAGE Imchada::Instance::LogLevel::MESSAGE
 
 namespace Imchada {
 class Instance {
@@ -36,7 +37,9 @@ public:
 
   // logging stuff
 
-  void imchada_log(std::string log_message, int log_level);
+  enum class LogLevel { MESSAGE, ERROR, WARNING };
+
+  void imchada_log(std::string log_message, LogLevel level);
 
   // scene stuff
   /*  @TODO  */

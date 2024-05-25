@@ -1,3 +1,4 @@
-[1:12:42][ImchadaEngine]: teste
-[1:12:42][ImchadaEngine][ERROR]: teste 1
-[1:12:42][ImchadaEngine][WARN]: teste 2
+[1:36:58][ImchadaEngine]: Engine Start
+[1:36:58][ImchadaEngine]: message log
+[1:36:58][ImchadaEngine][WARN]: warn log
+[1:36:58][ImchadaEngine][ERROR]: error log

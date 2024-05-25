@@ -15,9 +15,9 @@ int main(int argc, char **argv) {
   std::cout << "Hello World from main file\n";
   hello_world();
 
-  example.imchada_log("teste", 0);
-  example.imchada_log("teste 1", 1);
-  example.imchada_log("teste 2", 2);
+  example.imchada_log("message log", LOG_MESSAGE);
+  example.imchada_log("warn log", LOG_WARN);
+  example.imchada_log("error log", LOG_ERROR);
 
   std::cout << example.get_debug_state() << std::endl;
 

@@ -9,6 +9,8 @@ Instance::Instance(int argc, char *argv[]) {
   m_isDebug = false;
 
   process_arguments(argc, argv);
+
+  imchada_log("Engine Start", LOG_MESSAGE);
 }
 
 } // namespace Imchada

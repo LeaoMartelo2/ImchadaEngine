@@ -11,7 +11,7 @@ const char *logLevel_header = "[ImchadaEngine]: ";
 const char *logLevel_error = "[ImchadaEngine][ERROR]: ";
 const char *logLevel_warn = "[ImchadaEngine][WARN]: ";
 
-void Instance::imchada_log(std::string log_message, int log_level) {
+void Instance::imchada_log(std::string log_message, LogLevel level) {
 
   if (!get_logging_state()) {
     return;
@@ -44,13 +44,13 @@ void Instance::imchada_log(std::string log_message, int log_level) {
 
   std::string temp_log_header;
 
-  switch (log_level) {
+  switch (level) {
 
-  case LOG_WARN:
+  case LogLevel::WARNING:
     temp_log_header = logLevel_warn;
     break;
 
-  case LOG_ERROR:
+  case LogLevel::ERROR:
     temp_log_header = logLevel_error;
     break;
 
