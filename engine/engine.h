@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <vector>
 
-#define MAX_LOGGING_LEVEL 2
 #define LOG_ERROR Imchada::Instance::LogLevel::ERROR
 #define LOG_WARN Imchada::Instance::LogLevel::WARNING
 #define LOG_MESSAGE Imchada::Instance::LogLevel::MESSAGE
