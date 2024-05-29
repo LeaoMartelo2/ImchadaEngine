@@ -6,8 +6,9 @@ FINAL_FLAGS = -Wall -O2 -lncurses -lImchadaEngine -L ../engine_lib/ -Wl,-rpath,.
 GAME_SRC = game_src/
 GAME_INCLUDE = include/
 GAME_OBJ = game_bin/
+BINS = main.o example.o
 
-game: main.o example.o
+game: ${BINS}
 	${CC} $^ -o ${PROJECT_NAME} ${FINAL_FLAGS}
 
 main.o: main.cpp

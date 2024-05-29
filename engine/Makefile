@@ -2,9 +2,10 @@ CC= g++
 FLAGS = -lncurses -Wall -fPIC
 LIB_FOLDER = ../engine_lib/
 OBJ = obj/
+BINS = ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.o
 
 
-update: ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.o
+update: ${BINS}
 	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fPIC -shared $^
 
 
