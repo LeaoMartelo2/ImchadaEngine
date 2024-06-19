@@ -5,9 +5,11 @@ OBJ = obj/
 BINS = ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.o
 
 
-update: ${BINS}
-	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fPIC -shared $^
+#update: ${BINS}
+#	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fPIC -shared $^
 
+update: ${BINS}
+	ar rcs ${LIB_FOLDER}libImchadaEngine.a ${BINS}
 
 ${OBJ}engine_state.o: engine_state.cpp
 	${CC} ${FLAGS} -c $^ -o $@

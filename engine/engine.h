@@ -49,7 +49,7 @@ private:
   std::vector<char[30][80]> scenes;
 
 public:
-  char curret_scene[30][80];
+  char current_scene[30][80];
 
   int add_scene(char new_scene[][80]); // you add a screne and it returns you
                                        // with the scene id

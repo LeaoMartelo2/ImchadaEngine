@@ -9,6 +9,7 @@ namespace Imchada {
 const char *logLevel_header = "[ImchadaEngine]: ";
 const char *logLevel_error = "[ImchadaEngine][ERROR]: ";
 const char *logLevel_warn = "[ImchadaEngine][WARN]: ";
+const char *log_debug = "[ImchadaEngine][DEBUG] ";
 
 void Instance::imchada_log(std::string log_message, LogLevel level) {
 

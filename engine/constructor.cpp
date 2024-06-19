@@ -11,7 +11,11 @@ Instance::Instance(int argc, char *argv[]) {
 
   process_arguments(argc, argv);
 
-  imchada_log("########## INSTANCE CREATED ##########", LOG_MESSAGE);
-}
+  imchada_log("########## Imchada Engine Instance Created ##########",
+              LOG_MESSAGE);
 
+  if (m_isDebug) {
+    imchada_log("DEBUG MODE ENABLED", LOG_MESSAGE);
+  }
+}
 } // namespace Imchada
