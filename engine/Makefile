@@ -2,7 +2,7 @@ CC= g++
 FLAGS = -lncurses -Wall -fPIC
 LIB_FOLDER = ../engine_lib/
 OBJ = obj/
-BINS = ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.o ${OBJ}scene.o
+BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}logging.o ${OBJ}scene.o
 
 
 #update: ${BINS}
@@ -11,10 +11,7 @@ BINS = ${OBJ}engine_state.o ${OBJ}arguments.o ${OBJ}constructor.o ${OBJ}logging.
 update: ${BINS}
 	ar rcs ${LIB_FOLDER}libImchadaEngine.a ${BINS}
 
-${OBJ}engine_state.o: engine_state.cpp
-	${CC} ${FLAGS} -c $^ -o $@
-
-${OBJ}arguments.o: arguments.cpp
+${OBJ}instance.o: instance.cpp
 	${CC} ${FLAGS} -c $^ -o $@
 
 ${OBJ}constructor.o: constructor.cpp

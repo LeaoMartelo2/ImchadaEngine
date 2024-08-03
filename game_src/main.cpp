@@ -14,7 +14,6 @@ int main(int argc, char **argv) {
 
   std::cout << "Hello World from main file\n";
   hello_world();
-  test_doubleheader();
 
   example.imchada_log("message log", LOG_MESSAGE);
   example.imchada_log("warn log", LOG_WARN);

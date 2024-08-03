@@ -29,7 +29,6 @@ public:
 
   bool get_debug_state();
   bool get_verbose_state();
-  // int get_logging_level();
   bool get_logging_state();
 
   // logging stuff
@@ -42,6 +41,22 @@ public:
   /*  @TODO  */
 
 }; // Instance
+
+class Scene {
+private:
+public:
+  void add_map();
+}; // Scene
+
+class Asset {
+public:
+  void load_asset();
+}; // Asset
+
+class GameMap {
+public:
+  char colission_map[31][81];
+};
 
 } // namespace Imchada
 

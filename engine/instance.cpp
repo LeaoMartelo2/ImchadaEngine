@@ -3,9 +3,19 @@
 
 namespace Imchada {
 
-void Instance::process_arguments(int argc, char *argv[]) {
+// engine state
+void Instance::set_debug(bool state) { m_isDebug = state; }
+bool Instance::get_debug_state() { return m_isDebug; }
 
-  /*add your custom arguments here */
+void Instance::set_verbose(bool state) { m_isVerbose = state; }
+bool Instance::get_verbose_state() { return m_isVerbose; }
+
+void Instance::set_logging(bool state) { m_Logging = state; }
+bool Instance::get_logging_state() { return m_Logging; }
+
+// arguments
+
+void Instance::process_arguments(int argc, char *argv[]) {
 
   for (int i = 0; i < argc; i++) {
     if (strcmp(argv[i], "-debug") == 0) {
@@ -44,4 +54,4 @@ void Instance::process_arguments(int argc, char *argv[]) {
   }
 }
 
-} // namespace Imchada
+}; // namespace Imchada
