@@ -1,7 +1,6 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include "scene.h"
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -42,8 +41,6 @@ public:
   // scene stuff
   /*  @TODO  */
 
-private:
-public:
 }; // Instance
 
 } // namespace Imchada
