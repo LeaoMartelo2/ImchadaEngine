@@ -52,8 +52,17 @@ public:
 }; // Asset
 
 class GameMap {
+private:
+  char map[31][81];
+  std::string map_id;
+
 public:
-  char colission_map[31][81];
+private:
+  //
+public:
+  GameMap(std::string filename, std::string map_id);
+
+  char **get_map();
 };
 
 } // namespace Imchada
