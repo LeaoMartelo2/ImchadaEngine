@@ -14,7 +14,7 @@ Instance::Instance(int argc, char *argv[]) {
   imchada_log("########## Imchada Engine Instance Created ##########",
               LOG_MESSAGE);
 
-  if (m_isDebug) {
+  if (Instance::get_debug_state()) {
     imchada_log("DEBUG MODE ENABLED", LOG_MESSAGE);
   }
 }

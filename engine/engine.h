@@ -12,6 +12,7 @@
 #define LOG_MESSAGE Imchada::Instance::LogLevel::MESSAGE
 
 namespace Imchada {
+
 class Instance {
 private:
   bool m_isDebug;
@@ -36,9 +37,6 @@ public:
   enum class LogLevel { MESSAGE, ERROR, WARNING };
 
   void imchada_log(std::string log_message, LogLevel level);
-
-  // scene stuff
-  /*  @TODO  */
 
 }; // Instance
 

@@ -2,7 +2,7 @@ CC= g++
 FLAGS = -lncurses -Wall -fPIC
 LIB_FOLDER = ../engine_lib/
 OBJ = obj/
-BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}logging.o ${OBJ}scene.o
+BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}scene.o
 
 
 #update: ${BINS}
@@ -16,9 +16,6 @@ ${OBJ}instance.o: instance.cpp
 
 ${OBJ}constructor.o: constructor.cpp
 	${CC} ${FLAGS} -c $^ -o $@ 
-
-${OBJ}logging.o: logging.cpp
-	${CC} ${FLAGS} -c $^ -o $@
 
 ${OBJ}scene.o: scene.cpp
 	${CC} ${FLAGS} -c $^ -o $@
