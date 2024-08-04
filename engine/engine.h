@@ -54,15 +54,16 @@ public:
 class GameMap {
 private:
   char map[31][81];
-  std::string map_id;
 
 public:
 private:
   //
 public:
-  GameMap(std::string filename, std::string map_id);
+  GameMap(std::string filename);
 
   char **get_map();
+
+  void visualOverride(char original_value, char replace_with);
 };
 
 } // namespace Imchada

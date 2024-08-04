@@ -1,4 +1,9 @@
 #include "engine.h"
-#include <vector>
+#include <fstream>
+#include <iostream>
 
-namespace Imchada {}; // namespace Imchada
+namespace Imchada {
+GameMap::GameMap(std::string filename) {
+  std::fstream mapfile(filename.c_str());
+}
+}; // namespace Imchada
