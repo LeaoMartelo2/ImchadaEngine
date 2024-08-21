@@ -1,5 +1,5 @@
-#include "../engine/engine.h"
-#include "include/example.h"
+#include "../engine/engine.hpp"
+#include "include/example.hpp"
 #include <iostream>
 
 int main(int argc, char **argv) {
