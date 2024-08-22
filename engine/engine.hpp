@@ -1,11 +1,7 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <cstring>
-#include <fstream>
-#include <iostream>
-#include <stdio.h>
-#include <vector>
+#include <string>
 
 #define LOG_ERROR Imchada::Instance::LogLevel::ERROR
 #define LOG_WARN Imchada::Instance::LogLevel::WARNING
@@ -14,57 +10,61 @@
 namespace Imchada {
 
 class Instance {
-private:
-  bool m_isDebug;
-  bool m_isVerbose;
-  bool m_Logging;
+    private:
+        bool m_isDebug;
+        bool m_isVerbose;
+        bool m_Logging;
 
-  void process_arguments(int argc, char *argv[]);
+        void process_arguments(int argc, char *argv[]);
 
-public:
-  Instance(int argc, char *argv[]);
+    public:
+        Instance(int argc, char *argv[]);
 
-  void set_debug(bool state);
-  void set_verbose(bool state);
-  void set_logging(bool state);
+        void set_debug(bool state);
+        void set_verbose(bool state);
+        void set_logging(bool state);
 
-  bool get_debug_state();
-  bool get_verbose_state();
-  bool get_logging_state();
+        bool get_debug_state();
+        bool get_verbose_state();
+        bool get_logging_state();
 
-  // logging stuff
+        // logging stuff
 
-  enum class LogLevel { MESSAGE, ERROR, WARNING };
+        enum class LogLevel { MESSAGE, ERROR, WARNING };
 
-  void imchada_log(std::string log_message, LogLevel level);
+        void imchada_log(std::string log_message, LogLevel level);
 
 }; // Instance
 
 class Scene {
-private:
-public:
-  void add_map();
+    private:
+    public:
+        void add_map();
 }; // Scene
 
 class Asset {
-public:
-  void load_asset();
+    public:
+        void load_asset();
 }; // Asset
 
 class GameMap {
-private:
-  char map[31][81];
+    private:
+        char map[31][81];
 
-public:
-private:
-  //
-public:
-  GameMap(std::string filename);
+    public:
+    private:
+        //
+    public:
+        GameMap(std::string filename);
 
-  char **get_map();
+        char **get_map();
 
-  void visualOverride(char original_value, char replace_with);
+        void visualOverride(char original_value, char replace_with);
 };
+
+// classless functions
+
+void setupImchadaEngine(int argc, char *argv[]);
 
 } // namespace Imchada
 
