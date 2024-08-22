@@ -71,9 +71,8 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
 
     if (!file.is_open()) {
 
-        file.open("latest.log",
-                  std::ios::out); // creates the file in output mode if it does
-                                  // not exist / failed to open in append mode
+        file.open("latest.log", std::ios::out); // creates the file in output mode if it does
+                                                // not exist / failed to open in append mode
     }
 
     std::string temp_log_header;
@@ -95,8 +94,7 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
 
     /* this step builds the message to be printed in the log file */
 
-    file << "[" << hour << ":" << minute << ":" << second << "]"
-         << temp_log_header << log_message << std::endl;
+    file << "[" << hour << ":" << minute << ":" << second << "]" << temp_log_header << log_message << std::endl;
 
     file.close();
 }
@@ -105,8 +103,7 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
 
 void setupImchadaEngine(int argc, char **argv) {
 
-    std::shared_ptr<Instance> ImchadaInstance =
-        std::make_shared<Instance>(argc, **argv);
+    std::shared_ptr<Instance> ImchadaInstance = std::make_shared<Instance>(argc, **argv);
 }
 
 }; // namespace Imchada

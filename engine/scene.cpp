@@ -1,1 +1,1 @@
-namespace Imchada {};
+namespace Imchada {}; // namespace Imchada
