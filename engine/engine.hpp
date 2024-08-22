@@ -30,7 +30,9 @@ class Instance {
 
         // logging stuff
 
-        enum class LogLevel { MESSAGE, ERROR, WARNING };
+        enum class LogLevel { MESSAGE,
+                              ERROR,
+                              WARNING };
 
         void imchada_log(std::string log_message, LogLevel level);
 
