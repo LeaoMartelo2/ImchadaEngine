@@ -101,9 +101,9 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
 
 // classless functions
 
+}; // namespace Imchada
+
 std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]) {
 
     return std::make_unique<Imchada::Instance>(argc, argv);
 }
-
-}; // namespace Imchada

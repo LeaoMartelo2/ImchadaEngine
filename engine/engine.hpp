@@ -67,8 +67,8 @@ class GameMap {
 
 // classless functions
 
-std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]);
-
 } // namespace Imchada
+
+std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]);
 
 #endif // !ENGINE_H
