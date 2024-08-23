@@ -101,9 +101,9 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
 
 // classless functions
 
-void setupImchadaEngine(int argc, char **argv) {
+std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]) {
 
-    std::shared_ptr<Instance> ImchadaInstance = std::make_shared<Instance>(argc, **argv);
+    return std::make_unique<Imchada::Instance>(argc, argv);
 }
 
 }; // namespace Imchada

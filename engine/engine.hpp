@@ -1,6 +1,7 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
+#include <memory>
 #include <string>
 
 #define LOG_ERROR Imchada::Instance::LogLevel::ERROR
@@ -66,7 +67,7 @@ class GameMap {
 
 // classless functions
 
-void setupImchadaEngine(int argc, char *argv[]);
+std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]);
 
 } // namespace Imchada
 
