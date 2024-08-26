@@ -1,10 +1,12 @@
 #include "engine.hpp"
+#include <iostream>
 
 namespace Imchada {
 
 Instance::Instance(int argc, char *argv[]) {
 
-    // you can set those here manually to force a state regardless of aguments
+    std::cout << "Constructor Called! \n";
+
     m_Logging = false;
     m_isVerbose = false;
     m_isDebug = false;
@@ -17,4 +19,5 @@ Instance::Instance(int argc, char *argv[]) {
         imchada_log("DEBUG MODE ENABLED", LOG_MESSAGE);
     }
 }
+
 } // namespace Imchada
