@@ -32,4 +32,5 @@ int main(int argc, char *argv[]) {
 
 /* only using .reset() seems to work, as i only get 1 destructor output, i assume its from the .reset() method
  * could be because its going out of scope, but from previous testing, returning the main function ends the program
- * before it can get out of scope, this is a memory leak, and it only happens not to be one on the main function, cuz it ends the program lol */
+ * before it can get out of scope, this is a memory leak, and it only happens not to be one on the main function,
+ * cuz it ends the program lol */
