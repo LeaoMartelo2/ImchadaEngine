@@ -17,6 +17,7 @@ class Instance {
 
     public:
         Instance(int argc, char *argv[]);
+        ~Instance();
 
         void set_debug(bool state);
         void set_verbose(bool state);

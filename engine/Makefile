@@ -5,10 +5,10 @@ OBJ = obj/
 BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}scene.o ${OBJ}game_map.o
 
 
-#update: ${BINS}
-#	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -fPIC -shared $^
-
 update: ${BINS}
+	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -shared $^
+
+static: ${BINS}
 	ar rcs ${LIB_FOLDER}libImchadaEngine.a ${BINS}
 
 clear: 

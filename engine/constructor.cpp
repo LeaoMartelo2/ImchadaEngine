@@ -15,5 +15,13 @@ Instance::Instance(int argc, char *argv[]) {
 
     if (Instance::get_debug_state()) {
         imchada_log("DEBUG MODE ENABLED", IMCHADA_WARN);
+        std::cout << "Hello, World from Instance constructor in debug mode\n";
     }
+}
+
+Instance::~Instance() {
+
+    imchada_log("########## Imchada Engine Instance Destroyed ##########", IMCHADA_MESSAGE);
+
+    std::cout << "Instance destructor called test\n";
 }
