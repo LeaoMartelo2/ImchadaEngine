@@ -6,12 +6,17 @@
 #define IMCHADA_ERROR Instance::LogType::ERROR
 #define IMCHADA_WARN Instance::LogType::WARNING
 #define IMCHADA_MESSAGE Instance::LogType::MESSAGE
+#define IMCHADA_DEBUG Instance::LogType::DEBUG
 
 class Instance {
     private:
         bool m_isDebug;
         bool m_isVerbose;
         bool m_Logging;
+
+        const std::string logLevel_header = "[ImchadaEngine][LOG]: ";
+        const std::string logLevel_error = "[ImchadaEngine][ERROR]: ";
+        const std::string logLevel_warn = "[ImchadaEngine][WARN]: ";
 
         void process_arguments(int argc, char *argv[]);
 

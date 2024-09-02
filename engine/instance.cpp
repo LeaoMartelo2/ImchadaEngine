@@ -31,48 +31,18 @@ void Instance::process_arguments(int argc, char *argv[]) {
         if (strcmp(argv[i], "-log") == 0) {
             set_logging(true);
         }
-
-        if (strcmp(argv[i], "-example") == 0) {
-            // example
-        }
     }
 }
 
 // logging
-const char *logLevel_header = "[ImchadaEngine][LOG]: ";
-const char *logLevel_error = "[ImchadaEngine][ERROR]: ";
-const char *logLevel_warn = "[ImchadaEngine][WARN]: ";
-const char *log_debug = "[ImchadaEngine][DEBUG] ";
 
 void Instance::imchada_log(std::string log_message, LogType level) {
 
-    if (!get_logging_state()) {
+    if (get_logging_state() == false) {
         return;
     }
 
-    /* get system time chrono magic */
-
-    // get sys time
-    auto now = std::chrono::system_clock::now();
-
-    // convert it to time_point UTC standart
-    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
-
-    std::tm *local_time = std::localtime(&now_c);
-
-    int hour = local_time->tm_hour;  // Hour of the day (24-hour format)
-    int minute = local_time->tm_min; // Minute of the hour
-    int second = local_time->tm_sec; // Second of the minute
-
-    std::fstream file("latest.log", std::ios::app); // open file in append mode
-
-    if (!file.is_open()) {
-
-        file.open("latest.log", std::ios::out); // creates the file in output mode if it does
-                                                // not exist / failed to open in append mode
-    }
-
-    std::string temp_log_header = "SOMETHING WENT WRONG LOL\n";
+    std::string temp_log_header = "SOMETHING WENT WRONG\n";
 
     switch (level) {
 
@@ -89,9 +59,38 @@ void Instance::imchada_log(std::string log_message, LogType level) {
         break;
     }
 
+    // get sys time
+    auto now = std::chrono::system_clock::now();
+
+    // convert time_point to time_t
+    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+
+    // get current time to current time
+    std::tm *local_time = std::localtime(&now_c);
+
+    int day = local_time->tm_mday;
+    int month = local_time->tm_mon + 1;    // 0 indexed
+    int year = local_time->tm_year + 1900; // timestamped since 1900 so add 1900 to get current year
+    int hour = local_time->tm_hour;        // 24-hour format
+    int minute = local_time->tm_min;
+    int second = local_time->tm_sec;
+
+    std::fstream file("latest.log", std::ios::app); // open file in append mode
+
+    if (!file.is_open()) {
+
+        file.open("latest.log", std::ios::out); // creates the file in output mode if it does
+                                                // not exist / failed to open in append mode
+    }
+
     /* this step builds the message to be printed in the log file */
 
-    file << "[" << hour << ":" << minute << ":" << second << "]" << temp_log_header << log_message << std::endl;
+    file << "[" << year << "/" << month << "/" << day << "]"
+         << "[" << hour << ":" << minute << ":" << second << "]"
+         << temp_log_header << log_message << std::endl;
+
+    /*this should end up printing like this*/
+    /*[year/month/day] [hour:minute:second] <LogType> <message>*/
 
     file.close();
 }

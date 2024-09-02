@@ -17,9 +17,9 @@ int main(int argc, char **argv) {
     ImchadaInstance.set_debug(!ImchadaInstance.get_debug_state());
     std::cout << "Current debug state: " << ImchadaInstance.get_debug_state() << std::endl;
 
-    /*manually call the destructor for testing reasons*/
-    /*ImchadaInstance.~Instance();*/
-    /*its getting called 2x cuz it goes out of scope, so it auto calls the destruc*/
+    ImchadaInstance.imchada_log("MESSAGE LOG", IMCHADA_MESSAGE);
+    ImchadaInstance.imchada_log("WARN LOG", IMCHADA_WARN);
+    ImchadaInstance.imchada_log("ERROR LOG", IMCHADA_ERROR);
 
     return 0;
 }
