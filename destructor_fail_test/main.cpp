@@ -14,12 +14,12 @@ class MyClass {
 
 int main(int argc, char *argv[]) {
 
-    std::unique_ptr<MyClass> ptr = std::make_unique<MyClass>();
+    std::cout << "before scope\n";
+    {
+        std::unique_ptr<MyClass> ptr = std::make_unique<MyClass>();
+    }
 
-    /*ptr.get()->~MyClass();*/
-
-    /*prevents this pointer to do undefined behaviour*/
-    ptr.reset();
+    std::cout << "outside the scope \n";
 
     return 0;
 }

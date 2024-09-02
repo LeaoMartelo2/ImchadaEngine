@@ -1,14 +1,11 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include <memory>
 #include <string>
 
-#define LOG_ERROR Imchada::Instance::LogLevel::ERROR
-#define LOG_WARN Imchada::Instance::LogLevel::WARNING
-#define LOG_MESSAGE Imchada::Instance::LogLevel::MESSAGE
-
-namespace Imchada {
+#define IMCHADA_ERROR Instance::LogType::ERROR
+#define IMCHADA_WARN Instance::LogType::WARNING
+#define IMCHADA_MESSAGE Instance::LogType::MESSAGE
 
 class Instance {
     private:
@@ -31,11 +28,11 @@ class Instance {
 
         // logging stuff
 
-        enum class LogLevel { MESSAGE,
-                              ERROR,
-                              WARNING };
+        enum class LogType { MESSAGE,
+                             ERROR,
+                             WARNING };
 
-        void imchada_log(std::string log_message, LogLevel level);
+        void imchada_log(std::string log_message, LogType level);
 
 }; // Instance
 
@@ -66,9 +63,5 @@ class GameMap {
 };
 
 // classless functions
-
-} // namespace Imchada
-
-std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]);
 
 #endif // !ENGINE_H

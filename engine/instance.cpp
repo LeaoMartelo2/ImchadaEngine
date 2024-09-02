@@ -4,9 +4,6 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
-#include <memory>
-
-namespace Imchada {
 
 // engine state
 void Instance::set_debug(bool state) { m_isDebug = state; }
@@ -47,7 +44,7 @@ const char *logLevel_error = "[ImchadaEngine][ERROR]: ";
 const char *logLevel_warn = "[ImchadaEngine][WARN]: ";
 const char *log_debug = "[ImchadaEngine][DEBUG] ";
 
-void Instance::imchada_log(std::string log_message, LogLevel level) {
+void Instance::imchada_log(std::string log_message, LogType level) {
 
     if (!get_logging_state()) {
         return;
@@ -75,15 +72,15 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
                                                 // not exist / failed to open in append mode
     }
 
-    std::string temp_log_header;
+    std::string temp_log_header = "SOMETHING WENT WRONG LOL\n";
 
     switch (level) {
 
-    case LogLevel::WARNING:
+    case LogType::WARNING:
         temp_log_header = logLevel_warn;
         break;
 
-    case LogLevel::ERROR:
+    case LogType::ERROR:
         temp_log_header = logLevel_error;
         break;
 
@@ -100,10 +97,3 @@ void Instance::imchada_log(std::string log_message, LogLevel level) {
 }
 
 // classless functions
-
-}; // namespace Imchada
-
-std::unique_ptr<Imchada::Instance> setupImchadaEngine(int argc, char *argv[]) {
-
-    return std::make_unique<Imchada::Instance>(argc, argv);
-}

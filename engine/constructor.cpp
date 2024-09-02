@@ -1,8 +1,6 @@
 #include "engine.hpp"
 #include <iostream>
 
-namespace Imchada {
-
 Instance::Instance(int argc, char *argv[]) {
 
     std::cout << "Constructor Called! \n";
@@ -13,11 +11,9 @@ Instance::Instance(int argc, char *argv[]) {
 
     process_arguments(argc, argv);
 
-    imchada_log("########## Imchada Engine Instance Created ##########", LOG_MESSAGE);
+    imchada_log("########## Imchada Engine Instance Created ##########", IMCHADA_MESSAGE);
 
     if (Instance::get_debug_state()) {
-        imchada_log("DEBUG MODE ENABLED", LOG_MESSAGE);
+        imchada_log("DEBUG MODE ENABLED", IMCHADA_WARN);
     }
 }
-
-} // namespace Imchada

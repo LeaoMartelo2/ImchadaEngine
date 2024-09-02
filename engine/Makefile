@@ -11,6 +11,9 @@ BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}scene.o ${OBJ}game_map.o
 update: ${BINS}
 	ar rcs ${LIB_FOLDER}libImchadaEngine.a ${BINS}
 
+clear: 
+	rm obj/*.o
+
 ${OBJ}instance.o: instance.cpp
 	${CC} ${FLAGS} -c $^ -o $@
 

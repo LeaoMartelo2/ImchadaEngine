@@ -5,8 +5,9 @@
 
 int main(int argc, char **argv) {
 
+    /*std::cout << "Before the scope\n";*/
     // std::unique_ptr<Imchada::Instance> ImchadaInstance = setupImchadaEngine(argc, argv);
-    {
+    /*{
         std::unique_ptr<Imchada::Instance> ImchadaInstance = std::make_unique<Imchada::Instance>(argc, argv);
 
         hello_world();
@@ -23,11 +24,14 @@ int main(int argc, char **argv) {
         ImchadaInstance->imchada_log("message log", LOG_MESSAGE);
         ImchadaInstance->imchada_log("warn log", LOG_WARN);
         ImchadaInstance->imchada_log("error log", LOG_ERROR);
-    }
+    }*/
 
-    std::cout << "Outside the scope\n";
+    /*std::cout << "Outside the scope\n";*/
 
-    std::cin.get();
+    /*std::cin.get();*/
+
+    /*attempt #1 of trying the schizo api method, where you hallucinate how you wanna use the API/lib first
+     * and then you figure out implement it (its gonna suck bad) */
 
     return 0;
 }
