@@ -21,21 +21,20 @@ int main(int argc, char **argv) {
         std::cout << "Current debug state: " << ImchadaInstance->get_debug_state() << std::endl;
 
         /* test if logging system works correctly */
-        ImchadaInstance->imchada_log("MESSAGE LOG", IMCHADA_MESSAGE);
-        ImchadaInstance->imchada_log("WARN LOG", IMCHADA_WARN);
-        ImchadaInstance->imchada_log("ERROR LOG", IMCHADA_ERROR);
+        ImchadaInstance->imchada_log("This is a Message log", IMCHADA_MESSAGE);
+        ImchadaInstance->imchada_log("This is a Warn log", IMCHADA_WARN);
+        ImchadaInstance->imchada_log("This is an Error log", IMCHADA_ERROR);
 
         /* temp hack to check for Scene impelementation */
         auto scenePtr1 = std::make_shared<Scene>();
         auto scenePtr2 = std::make_shared<Scene>();
-
         ImchadaInstance->add_scene(scenePtr1);
         ImchadaInstance->add_scene(scenePtr2);
 
         std::cout << "Ammound of scenes added to current instance: "
                   << ImchadaInstance->get_scene_count() << std::endl;
 
-        ImchadaInstance->load_scene(1);
+        ImchadaInstance->load_scene(0);
 
         /*lets hope all scenes get their destructors called*/
     }

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <memory>
+#include <string>
 
 // engine state
 void Instance::set_debug(bool state) { m_isDebug = state; }
@@ -99,6 +100,12 @@ void Instance::imchada_log(std::string log_message, LogType level) {
 void Instance::add_scene(const std::shared_ptr<Scene> &scene_ptr) {
 
     scene_ptrs.push_back(scene_ptr);
+
+    if (m_Logging) {
+        imchada_log("Pushed Scene to Instance, Scene ID: " +
+                        std::to_string(scene_ptrs.size() - 1),
+                    IMCHADA_MESSAGE);
+    }
 }
 
 int Instance::get_scene_count() {
@@ -108,9 +115,20 @@ int Instance::get_scene_count() {
 void Instance::load_scene(long unsigned int scene_id) {
     /*logic to load scene by its std::vector position  */
 
-    if (scene_id >= 0 && scene_id < scene_ptrs.size()) {
+    if (scene_id < scene_ptrs.size()) {
         scene_ptrs[scene_id]->load();
+
+        if (m_Logging) {
+            imchada_log("Loaded Scene with ID: " + std::to_string(scene_id), IMCHADA_MESSAGE);
+        }
+
     } else {
+        if (m_Logging) {
+            imchada_log("Instance failed to load Scene; Tried to load scene with ID: " +
+                            std::to_string(scene_id),
+                        IMCHADA_ERROR);
+        }
+        return;
         // oh well ¯\_(ツ)_/¯
     }
 }

@@ -8,6 +8,7 @@ class Scene {
         ~Scene();
 
         void load();
+
 }; // Scene
 
-#endif //
+#endif

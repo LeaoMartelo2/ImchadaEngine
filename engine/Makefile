@@ -1,5 +1,5 @@
 CC= g++
-FLAGS = -lncurses -Wall -fPIC
+FLAGS = -lncurses -Wall -Wextra -fPIC
 LIB_FOLDER = ../engine_lib/
 OBJ = obj/
 BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}scene.o ${OBJ}game_map.o
