@@ -34,9 +34,9 @@ class Instance {
         void set_verbose(bool state);
         void set_logging(bool state);
 
-        bool get_debug_state();
-        bool get_verbose_state();
-        bool get_logging_state();
+        bool get_debug_state(void);
+        bool get_verbose_state(void);
+        bool get_logging_state(void);
 
         // logging stuff
 
@@ -48,9 +48,9 @@ class Instance {
 
         void add_scene(const std::shared_ptr<Scene> &scene_ptr);
 
-        int get_scene_count();
+        long unsigned int get_scene_count(void);
 
-        void load_scene(long unsigned int scene_id);
+        int load_scene(long unsigned int scene_id);
 
 }; // Instance
 

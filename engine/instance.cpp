@@ -9,29 +9,34 @@
 
 // engine state
 void Instance::set_debug(bool state) { m_isDebug = state; }
-bool Instance::get_debug_state() { return m_isDebug; }
+bool Instance::get_debug_state(void) { return m_isDebug; }
 
 void Instance::set_verbose(bool state) { m_isVerbose = state; }
-bool Instance::get_verbose_state() { return m_isVerbose; }
+bool Instance::get_verbose_state(void) { return m_isVerbose; }
 
 void Instance::set_logging(bool state) { m_Logging = state; }
-bool Instance::get_logging_state() { return m_Logging; }
+bool Instance::get_logging_state(void) { return m_Logging; }
 
 // arguments
 
 void Instance::process_arguments(int argc, char *argv[]) {
 
-    for (int i = 0; i < argc; i++) {
-        if (strcmp(argv[i], "-debug") == 0) {
-            set_debug(true);
+    std::string current_check = {};
+
+    int i = 0;
+    for (i = 0; i < argc; i++) {
+        current_check = argv[i];
+
+        if (current_check == "-debug") {
+            m_isDebug = true;
         }
 
-        if (strcmp(argv[i], "-verbose") == 0) {
-            set_verbose(true);
+        if (current_check == "-verbose") {
+            m_isVerbose = true;
         }
 
-        if (strcmp(argv[i], "-log") == 0) {
-            set_logging(true);
+        if (current_check == "-log") {
+            m_Logging = true;
         }
     }
 }
@@ -101,34 +106,30 @@ void Instance::add_scene(const std::shared_ptr<Scene> &scene_ptr) {
 
     scene_ptrs.push_back(scene_ptr);
 
-    if (m_Logging) {
-        imchada_log("Pushed Scene to Instance, Scene ID: " +
-                        std::to_string(scene_ptrs.size() - 1),
-                    IMCHADA_MESSAGE);
-    }
+    imchada_log("Pushed Scene to Instance, Scene ID: " +
+                    std::to_string(scene_ptrs.size() - 1),
+                IMCHADA_MESSAGE);
 }
 
-int Instance::get_scene_count() {
+long unsigned int Instance::get_scene_count() {
+    /*a std::vector's size is a long unsigned int apparently  */
     return scene_ptrs.size();
 }
 
-void Instance::load_scene(long unsigned int scene_id) {
+int Instance::load_scene(long unsigned int scene_id) {
     /*logic to load scene by its std::vector position  */
 
     if (scene_id < scene_ptrs.size()) {
         scene_ptrs[scene_id]->load();
 
-        if (m_Logging) {
-            imchada_log("Loaded Scene with ID: " + std::to_string(scene_id), IMCHADA_MESSAGE);
-        }
+        imchada_log("Loaded Scene with ID: " + std::to_string(scene_id), IMCHADA_MESSAGE);
+        return 0;
 
     } else {
-        if (m_Logging) {
-            imchada_log("Instance failed to load Scene; Tried to load scene with ID: " +
-                            std::to_string(scene_id),
-                        IMCHADA_ERROR);
-        }
-        return;
+        imchada_log("Instance failed to load Scene; Tried to load scene with ID: " +
+                        std::to_string(scene_id),
+                    IMCHADA_ERROR);
+        return 1;
         // oh well ¯\_(ツ)_/¯
     }
 }
