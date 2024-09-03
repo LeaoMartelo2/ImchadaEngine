@@ -20,7 +20,7 @@ class Instance {
         const std::string logLevel_error = "[ImchadaEngine][ERROR]: ";
         const std::string logLevel_warn = "[ImchadaEngine][WARN]: ";
 
-        std::vector<std::shared_ptr<Scene>> scenePtrs;
+        std::vector<std::shared_ptr<Scene>> scene_ptrs;
 
     private:
         void
@@ -46,9 +46,11 @@ class Instance {
 
         void imchada_log(std::string log_message, LogType level);
 
-        void add_scene(const std::shared_ptr<Scene> &scenePtr);
+        void add_scene(const std::shared_ptr<Scene> &scene_ptr);
 
         int get_scene_count();
+
+        void load_scene(long unsigned int scene_id);
 
 }; // Instance
 
@@ -74,4 +76,4 @@ class GameMap {
 
 // classless functions
 
-#endif // !ENGINE_H
+#endif //

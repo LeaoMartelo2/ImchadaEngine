@@ -6,7 +6,8 @@ class Scene {
     public:
         Scene();
         ~Scene();
-        /*void add_map();*/
+
+        void load();
 }; // Scene
 
-#endif // !SCENE_HPP
+#endif //

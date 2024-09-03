@@ -10,3 +10,9 @@
 [2024/9/2][23:34:40][ImchadaEngine][WARN]: WARN LOG
 [2024/9/2][23:34:40][ImchadaEngine][ERROR]: ERROR LOG
 [2024/9/2][23:34:40][ImchadaEngine][LOG]: ########## Imchada Engine Instance Destroyed ##########
+[2024/9/3][0:4:40][ImchadaEngine][LOG]: ########## Imchada Engine Instance Created ##########
+[2024/9/3][0:4:40][ImchadaEngine][WARN]: DEBUG MODE ENABLED
+[2024/9/3][0:4:40][ImchadaEngine][LOG]: MESSAGE LOG
+[2024/9/3][0:4:40][ImchadaEngine][WARN]: WARN LOG
+[2024/9/3][0:4:40][ImchadaEngine][ERROR]: ERROR LOG
+[2024/9/3][0:4:40][ImchadaEngine][LOG]: ########## Imchada Engine Instance Destroyed ##########

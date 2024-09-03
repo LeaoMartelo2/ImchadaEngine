@@ -96,12 +96,22 @@ void Instance::imchada_log(std::string log_message, LogType level) {
     file.close();
 }
 
-void Instance::add_scene(const std::shared_ptr<Scene> &scenePtr) {
+void Instance::add_scene(const std::shared_ptr<Scene> &scene_ptr) {
 
-    scenePtrs.push_back(scenePtr);
+    scene_ptrs.push_back(scene_ptr);
 }
 
 int Instance::get_scene_count() {
-    return scenePtrs.size();
+    return scene_ptrs.size();
+}
+
+void Instance::load_scene(long unsigned int scene_id) {
+    /*logic to load scene by its std::vector position  */
+
+    if (scene_id >= 0 && scene_id < scene_ptrs.size()) {
+        scene_ptrs[scene_id]->load();
+    } else {
+        // oh well ¯\_(ツ)_/¯
+    }
 }
 // classless functions
