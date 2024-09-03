@@ -4,6 +4,7 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+#include <memory>
 
 // engine state
 void Instance::set_debug(bool state) { m_isDebug = state; }
@@ -65,7 +66,7 @@ void Instance::imchada_log(std::string log_message, LogType level) {
     // convert time_point to time_t
     std::time_t now_c = std::chrono::system_clock::to_time_t(now);
 
-    // get current time to current time
+    /*timezone stuff*/
     std::tm *local_time = std::localtime(&now_c);
 
     int day = local_time->tm_mday;
@@ -95,4 +96,12 @@ void Instance::imchada_log(std::string log_message, LogType level) {
     file.close();
 }
 
+void Instance::add_scene(const std::shared_ptr<Scene> &scenePtr) {
+
+    scenePtrs.push_back(scenePtr);
+}
+
+int Instance::get_scene_count() {
+    return scenePtrs.size();
+}
 // classless functions

@@ -19,10 +19,10 @@ example.o: ${GAME_INCLUDE}example.cpp
 	${CC} ${FLAGS} -c $^ -o $@
 
 clear:
-	rm *.o ${PROJECT_NAME}
-
-deepclear:
 	rm *.o ${PROJECT_NAME} latest.log
+
+objclear:
+	rm *.o ${PROJECT_NAME} 
 
 #something something
 #g++ main.o example.o  -o TEST -lncurses -lImchadaEngine -L ../engine_lib/ -Wl,-rpath,../engine_lib/

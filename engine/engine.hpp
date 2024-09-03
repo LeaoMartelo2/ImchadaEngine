@@ -1,12 +1,14 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
+#include "scene.hpp"
+#include <memory>
 #include <string>
+#include <vector>
 
 #define IMCHADA_ERROR Instance::LogType::ERROR
 #define IMCHADA_WARN Instance::LogType::WARNING
 #define IMCHADA_MESSAGE Instance::LogType::MESSAGE
-#define IMCHADA_DEBUG Instance::LogType::DEBUG
 
 class Instance {
     private:
@@ -18,7 +20,11 @@ class Instance {
         const std::string logLevel_error = "[ImchadaEngine][ERROR]: ";
         const std::string logLevel_warn = "[ImchadaEngine][WARN]: ";
 
-        void process_arguments(int argc, char *argv[]);
+        std::vector<std::shared_ptr<Scene>> scenePtrs;
+
+    private:
+        void
+        process_arguments(int argc, char *argv[]);
 
     public:
         Instance(int argc, char *argv[]);
@@ -40,13 +46,11 @@ class Instance {
 
         void imchada_log(std::string log_message, LogType level);
 
-}; // Instance
+        void add_scene(const std::shared_ptr<Scene> &scenePtr);
 
-class Scene {
-    private:
-    public:
-        void add_map();
-}; // Scene
+        int get_scene_count();
+
+}; // Instance
 
 class Asset {
     public:
