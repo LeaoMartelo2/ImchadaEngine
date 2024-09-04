@@ -24,6 +24,8 @@ class Instance {
     private:
         void process_arguments(int argc, char *argv[]);
 
+        void add_scene(const std::shared_ptr<Scene> &scene_ptr);
+
     public:
         Instance(int argc, char *argv[]);
         ~Instance();
@@ -46,13 +48,12 @@ class Instance {
 
         // scene stuff
 
-        void add_scene(const std::shared_ptr<Scene> &scene_ptr);
-
-        void create_scene();
+        /*this creates a Scene object, pushes it in to the Scene(s) buffer, and returns its id */
+        int create_scene();
 
         long unsigned int get_scene_count(void);
 
-        int load_scene(long unsigned int scene_id);
+        int load_scene(int scene_id);
 
 }; // Instance
 

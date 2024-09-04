@@ -26,13 +26,13 @@ int main(int argc, char **argv) {
         ImchadaInstance->imchada_log("This is an Error log", IMCHADA_ERROR);
 
         /* temp hack to check for Scene impelementation */
-        ImchadaInstance->create_scene();
-        ImchadaInstance->create_scene();
+        int first_scene = ImchadaInstance->create_scene();
+        int second_scene = ImchadaInstance->create_scene();
 
         std::cout << "Ammound of scenes added to current instance: "
                   << ImchadaInstance->get_scene_count() << std::endl;
 
-        ImchadaInstance->load_scene(0);
+        ImchadaInstance->load_scene(first_scene);
     }
 
     std::cout << "Press any key to exit\n";

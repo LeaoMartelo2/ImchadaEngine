@@ -118,7 +118,7 @@ long unsigned int Instance::get_scene_count() {
     return scene_ptrs.size();
 }
 
-int Instance::load_scene(long unsigned int scene_id) {
+int Instance::load_scene(int scene_id) {
     /*logic to load scene by its std::vector position  */
 
     if (scene_id < scene_ptrs.size()) {
@@ -136,10 +136,13 @@ int Instance::load_scene(long unsigned int scene_id) {
     }
 }
 
-void Instance::create_scene() {
+int Instance::create_scene() {
 
+    // this creates all the Scene objects with the same name, surprised it didnt blow up yet
     std::shared_ptr<Scene> scene_test = std::make_shared<Scene>();
 
     add_scene(scene_test);
+
+    return static_cast<int>(scene_ptrs.size());
 }
 // classless functions
