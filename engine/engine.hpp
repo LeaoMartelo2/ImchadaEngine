@@ -13,7 +13,6 @@
 class Instance {
     private:
         bool m_isDebug;
-        bool m_isVerbose;
         bool m_Logging;
 
         const std::string logLevel_header = "[ImchadaEngine][LOG]: ";
@@ -23,19 +22,18 @@ class Instance {
         std::vector<std::shared_ptr<Scene>> scene_ptrs;
 
     private:
-        void
-        process_arguments(int argc, char *argv[]);
+        void process_arguments(int argc, char *argv[]);
 
     public:
         Instance(int argc, char *argv[]);
         ~Instance();
 
+        // engine states stuff
+
         void set_debug(bool state);
-        void set_verbose(bool state);
         void set_logging(bool state);
 
         bool get_debug_state(void);
-        bool get_verbose_state(void);
         bool get_logging_state(void);
 
         // logging stuff
@@ -46,7 +44,11 @@ class Instance {
 
         void imchada_log(std::string log_message, LogType level);
 
+        // scene stuff
+
         void add_scene(const std::shared_ptr<Scene> &scene_ptr);
+
+        void create_scene();
 
         long unsigned int get_scene_count(void);
 

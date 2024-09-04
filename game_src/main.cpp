@@ -26,18 +26,17 @@ int main(int argc, char **argv) {
         ImchadaInstance->imchada_log("This is an Error log", IMCHADA_ERROR);
 
         /* temp hack to check for Scene impelementation */
-        auto scenePtr1 = std::make_shared<Scene>();
-        auto scenePtr2 = std::make_shared<Scene>();
-        ImchadaInstance->add_scene(scenePtr1);
-        ImchadaInstance->add_scene(scenePtr2);
+        ImchadaInstance->create_scene();
+        ImchadaInstance->create_scene();
 
         std::cout << "Ammound of scenes added to current instance: "
                   << ImchadaInstance->get_scene_count() << std::endl;
 
         ImchadaInstance->load_scene(0);
-
-        /*lets hope all scenes get their destructors called*/
     }
+
+    std::cout << "Press any key to exit\n";
+    std::cin.get();
 
     return 0;
 }

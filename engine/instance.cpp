@@ -1,4 +1,5 @@
 #include "engine.hpp"
+#include "scene.hpp"
 #include <chrono>
 #include <cstring>
 #include <ctime>
@@ -8,11 +9,16 @@
 #include <string>
 
 // engine state
-void Instance::set_debug(bool state) { m_isDebug = state; }
-bool Instance::get_debug_state(void) { return m_isDebug; }
+void Instance::set_debug(bool state) {
 
-void Instance::set_verbose(bool state) { m_isVerbose = state; }
-bool Instance::get_verbose_state(void) { return m_isVerbose; }
+    if (state) {
+        imchada_log("DEBUG MODE: ENABLED", IMCHADA_WARN);
+    } else {
+        imchada_log("DEBUG MODE: DISABLED", IMCHADA_WARN);
+    }
+    m_isDebug = state;
+}
+bool Instance::get_debug_state(void) { return m_isDebug; }
 
 void Instance::set_logging(bool state) { m_Logging = state; }
 bool Instance::get_logging_state(void) { return m_Logging; }
@@ -29,10 +35,6 @@ void Instance::process_arguments(int argc, char *argv[]) {
 
         if (current_check == "-debug") {
             m_isDebug = true;
-        }
-
-        if (current_check == "-verbose") {
-            m_isVerbose = true;
         }
 
         if (current_check == "-log") {
@@ -94,7 +96,7 @@ void Instance::imchada_log(std::string log_message, LogType level) {
 
     file << "[" << year << "/" << month << "/" << day << "]"
          << "[" << hour << ":" << minute << ":" << second << "]"
-         << temp_log_header << log_message << std::endl;
+         << temp_log_header << log_message << '\n';
 
     /*this should end up printing like this*/
     /*[year/month/day] [hour:minute:second] <LogType> <message>*/
@@ -132,5 +134,12 @@ int Instance::load_scene(long unsigned int scene_id) {
         return 1;
         // oh well ¯\_(ツ)_/¯
     }
+}
+
+void Instance::create_scene() {
+
+    std::shared_ptr<Scene> scene_test = std::make_shared<Scene>();
+
+    add_scene(scene_test);
 }
 // classless functions
