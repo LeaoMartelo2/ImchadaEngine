@@ -3,10 +3,10 @@
 
 Instance::Instance(int argc, char *argv[]) {
 
-    std::cout << "Constructor Called! \n";
+    std::cout << "Instance Constructor Called! \n";
 
+    // just making sure it initializes as 0
     m_Logging = false;
-    m_isVerbose = false;
     m_isDebug = false;
 
     process_arguments(argc, argv);
@@ -15,15 +15,11 @@ Instance::Instance(int argc, char *argv[]) {
 
     if (m_isDebug) {
         imchada_log("DEBUG MODE ENABLED", IMCHADA_WARN);
-        std::cout << "Hello, World from Instance constructor in debug mode\n";
+        /*std::cout << "Hello, World from Instance constructor in debug mode\n";*/
     }
 }
 
 Instance::~Instance() {
 
     imchada_log("########## Imchada Engine Instance Destroyed ##########", IMCHADA_MESSAGE);
-
-    if (m_isDebug) {
-        std::cout << "Instance destructor called in debug mode\n";
-    }
 }

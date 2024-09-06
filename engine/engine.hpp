@@ -19,12 +19,13 @@ class Instance {
         const std::string logLevel_error = "[ImchadaEngine][ERROR]: ";
         const std::string logLevel_warn = "[ImchadaEngine][WARN]: ";
 
+    public:
         std::vector<std::shared_ptr<Scene>> scene_ptrs;
 
     private:
         void process_arguments(int argc, char *argv[]);
 
-        void add_scene(const std::shared_ptr<Scene> &scene_ptr);
+        void add_scene(const std::shared_ptr<Scene> &new_scene_ptr);
 
     public:
         Instance(int argc, char *argv[]);

@@ -34,7 +34,7 @@ void Instance::process_arguments(int argc, char *argv[]) {
         current_check = argv[i];
 
         if (current_check == "-debug") {
-            m_isDebug = true;
+            set_debug(true);
         }
 
         if (current_check == "-log") {
@@ -104,9 +104,9 @@ void Instance::imchada_log(std::string log_message, LogType level) {
     file.close();
 }
 
-void Instance::add_scene(const std::shared_ptr<Scene> &scene_ptr) {
+void Instance::add_scene(const std::shared_ptr<Scene> &new_scene_ptr) {
 
-    scene_ptrs.push_back(scene_ptr);
+    scene_ptrs.push_back(new_scene_ptr);
 
     imchada_log("Pushed Scene to Instance, Scene ID: " +
                     std::to_string(scene_ptrs.size() - 1),
@@ -121,7 +121,7 @@ long unsigned int Instance::get_scene_count() {
 int Instance::load_scene(int scene_id) {
     /*logic to load scene by its std::vector position  */
 
-    if (scene_id < scene_ptrs.size()) {
+    if (static_cast<long unsigned int>(scene_id) < scene_ptrs.size()) {
         scene_ptrs[scene_id]->load();
 
         imchada_log("Loaded Scene with ID: " + std::to_string(scene_id), IMCHADA_MESSAGE);
@@ -139,10 +139,10 @@ int Instance::load_scene(int scene_id) {
 int Instance::create_scene() {
 
     // this creates all the Scene objects with the same name, surprised it didnt blow up yet
-    std::shared_ptr<Scene> scene_test = std::make_shared<Scene>();
+    std::shared_ptr<Scene> scene_obj = std::make_shared<Scene>();
 
-    add_scene(scene_test);
+    add_scene(scene_obj);
 
-    return static_cast<int>(scene_ptrs.size());
+    return static_cast<int>(scene_ptrs.size()) - 1;
 }
 // classless functions
