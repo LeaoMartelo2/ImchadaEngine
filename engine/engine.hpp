@@ -19,7 +19,6 @@ class Instance {
         const std::string logLevel_error = "[ImchadaEngine][ERROR]: ";
         const std::string logLevel_warn = "[ImchadaEngine][WARN]: ";
 
-    public:
         std::vector<std::shared_ptr<Scene>> scene_ptrs;
 
     private:

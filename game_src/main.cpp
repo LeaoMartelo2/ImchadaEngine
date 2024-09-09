@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
 
         ImchadaInstance->load_scene(scene_id_zero);
 
-        ImchadaInstance->scene_ptrs[1]->load();
+        ImchadaInstance->load_scene(scene_id_one);
     }
 
     std::cout << "Press any key to exit\n";

@@ -14,7 +14,7 @@ Instance::Instance(int argc, char *argv[]) {
     imchada_log("########## Imchada Engine Instance Created ##########", IMCHADA_MESSAGE);
 
     if (m_isDebug) {
-        imchada_log("DEBUG MODE ENABLED", IMCHADA_WARN);
+        imchada_log("Instance initialized with debug mode enabled", IMCHADA_WARN);
         /*std::cout << "Hello, World from Instance constructor in debug mode\n";*/
     }
 }

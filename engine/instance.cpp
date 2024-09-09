@@ -34,7 +34,7 @@ void Instance::process_arguments(int argc, char *argv[]) {
         current_check = argv[i];
 
         if (current_check == "-debug") {
-            set_debug(true);
+            m_isDebug = true;
         }
 
         if (current_check == "-log") {
