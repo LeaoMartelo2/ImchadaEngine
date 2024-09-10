@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include "scene.hpp"
+#include <fmt/core.h>
 #include <memory>
 #include <string>
 #include <vector>
@@ -9,22 +10,9 @@
 #define IMCHADA_ERROR Instance::LogType::ERROR
 #define IMCHADA_WARN Instance::LogType::WARNING
 #define IMCHADA_MESSAGE Instance::LogType::MESSAGE
+#define IMCHADA_DEBUG Instance::LogType::DEBUG
 
 class Instance {
-    private:
-        bool m_isDebug;
-        bool m_Logging;
-
-        const std::string logLevel_header = "[ImchadaEngine][LOG]: ";
-        const std::string logLevel_error = "[ImchadaEngine][ERROR]: ";
-        const std::string logLevel_warn = "[ImchadaEngine][WARN]: ";
-
-        std::vector<std::shared_ptr<Scene>> scene_ptrs;
-
-    private:
-        void process_arguments(int argc, char *argv[]);
-
-        void add_scene(const std::shared_ptr<Scene> &new_scene_ptr);
 
     public:
         Instance(int argc, char *argv[]);
@@ -42,9 +30,14 @@ class Instance {
 
         enum class LogType { MESSAGE,
                              ERROR,
-                             WARNING };
+                             WARNING,
+                             DEBUG };
 
-        void imchada_log(std::string log_message, LogType level);
+        // this causes a lot of headache
+        template <typename... Args>
+        void imchada_log(LogType level, const std::string &format, Args... args);
+
+        std::string get_log_level_string(LogType level);
 
         // scene stuff
 
@@ -54,6 +47,17 @@ class Instance {
         long unsigned int get_scene_count(void);
 
         int load_scene(int scene_id);
+
+    private:
+        bool m_isDebug;
+        bool m_Logging;
+
+        std::vector<std::shared_ptr<Scene>> scene_ptrs;
+
+    private:
+        void process_arguments(int argc, char *argv[]);
+
+        void add_scene(const std::shared_ptr<Scene> &new_scene_ptr);
 
 }; // Instance
 

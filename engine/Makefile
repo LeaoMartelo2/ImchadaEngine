@@ -1,12 +1,12 @@
 CC= g++
-FLAGS = -lncurses -Wall -Wextra -fPIC
+FLAGS = -lncurses -Wall -Wextra -fPIC -lfmt
 LIB_FOLDER = ../engine_lib/
 OBJ = obj/
 BINS = ${OBJ}instance.o ${OBJ}constructor.o ${OBJ}scene.o ${OBJ}game_map.o
 
 
 update: ${BINS}
-	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -shared $^
+	${CC} -o ${LIB_FOLDER}libImchadaEngine.so -shared ${FLAGS} $^
 
 static: ${BINS}
 	ar rcs ${LIB_FOLDER}libImchadaEngine.a ${BINS}
