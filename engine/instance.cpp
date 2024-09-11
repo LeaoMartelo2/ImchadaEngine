@@ -1,14 +1,12 @@
 #include "engine.hpp"
 #include "scene.hpp"
 #include <chrono>
-#include <cstdarg>
 #include <cstring>
 #include <ctime>
 #include <fmt/core.h>
 #include <fstream>
 #include <memory>
 #include <string>
-#include <utility>
 
 // engine state
 void Instance::set_debug(bool state) {
@@ -83,7 +81,7 @@ std::string Instance::get_log_level_string(LogType level) {
     switch (level) {
 
     case LogType::MESSAGE:
-        return "[ImchadaEngine][LOG]: ";
+        return "[ImchadaEngine][LOG]  : ";
         break;
 
     case LogType::ERROR:
@@ -91,7 +89,7 @@ std::string Instance::get_log_level_string(LogType level) {
         break;
 
     case LogType::WARNING:
-        return "[ImchadaEngine][WARN]: ";
+        return "[ImchadaEngine][WARN] : ";
         break;
 
     case LogType::DEBUG:

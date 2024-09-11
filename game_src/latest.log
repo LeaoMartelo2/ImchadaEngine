@@ -1,11 +1,11 @@
-[2024/9/10][23:57:50][ImchadaEngine][LOG]: ########## Imchada Engine Instance Created ##########
-[2024/9/10][23:57:50][ImchadaEngine][WARN]: Instance initialized with debug mode enabled
-[2024/9/10][23:57:50][ImchadaEngine][LOG]: This is a Message log
-[2024/9/10][23:57:50][ImchadaEngine][WARN]: This is a Warn log
-[2024/9/10][23:57:50][ImchadaEngine][ERROR]: This is a Error log
-[2024/9/10][23:57:50][ImchadaEngine][DEBUG]: This is a Debug log, you shoud only be seeing this if you used -debug
-[2024/9/10][23:57:50][ImchadaEngine][LOG]: Pushed Scene to Instance, Scene ID: 0
-[2024/9/10][23:57:50][ImchadaEngine][LOG]: Pushed Scene to Instance, Scene ID: 1
-[2024/9/10][23:57:50][ImchadaEngine][LOG]: Loaded Scene with ID: 0
-[2024/9/10][23:57:50][ImchadaEngine][LOG]: Loaded Scene with ID: 1
-[2024/9/10][23:57:50][ImchadaEngine][WARN]: ########## Imchada Engine Instance Destroyed ##########
+[2024/9/11][0:4:40][ImchadaEngine][LOG]  : ########## Imchada Engine Instance Created ##########
+[2024/9/11][0:4:40][ImchadaEngine][WARN] : Instance initialized with debug mode enabled
+[2024/9/11][0:4:40][ImchadaEngine][LOG]  : This is a Message log
+[2024/9/11][0:4:40][ImchadaEngine][WARN] : This is a Warn log
+[2024/9/11][0:4:40][ImchadaEngine][ERROR]: This is a Error log
+[2024/9/11][0:4:40][ImchadaEngine][DEBUG]: This is a Debug log, you shoud only be seeing this if you used -debug
+[2024/9/11][0:4:40][ImchadaEngine][LOG]  : Pushed Scene to Instance, Scene ID: 0
+[2024/9/11][0:4:40][ImchadaEngine][LOG]  : Pushed Scene to Instance, Scene ID: 1
+[2024/9/11][0:4:40][ImchadaEngine][LOG]  : Loaded Scene with ID: 0
+[2024/9/11][0:4:40][ImchadaEngine][LOG]  : Loaded Scene with ID: 1
+[2024/9/11][0:4:40][ImchadaEngine][WARN] : ########## Imchada Engine Instance Destroyed ##########
