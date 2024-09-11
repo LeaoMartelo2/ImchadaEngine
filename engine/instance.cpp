@@ -1,11 +1,14 @@
 #include "engine.hpp"
 #include "scene.hpp"
+#include <chrono>
 #include <cstdarg>
 #include <cstring>
 #include <ctime>
 #include <fmt/core.h>
+#include <fstream>
 #include <memory>
 #include <string>
+#include <utility>
 
 // engine state
 void Instance::set_debug(bool state) {
@@ -42,83 +45,58 @@ void Instance::process_arguments(int argc, char *argv[]) {
 
 // logging
 
-/*template <typename... Args>*/
-/*void Instance::imchada_log(LogType level, const std::string &format, Args... args) {*/
-/**/
-/*    if (get_logging_state() == false) {*/
-/*        return;*/
-/*    }*/
-/**/
-/*    bool debug_check = get_debug_state();*/
-/**/
-/*    std::string final_string = get_log_level_string(level);*/
-/**/
-/*    // use std::format to format the to_string*/
-/*    std::string formated_message = fmt::format(format, args...);*/
-/**/
-/*    // get sys time*/
-/*    auto now = std::chrono::system_clock::now();*/
-/*    // convert time_point to time_t*/
-/*    std::time_t now_c = std::chrono::system_clock::to_time_t(now);*/
-/*    //    timezone stuff*/
-/*    std::tm *local_time = std::localtime(&now_c);*/
-/**/
-/*    int day = local_time->tm_mday;*/
-/*    int month = local_time->tm_mon + 1;    // 0 indexed*/
-/*    int year = local_time->tm_year + 1900; // timestamped since 1900 so add 1900 to get current year*/
-/*    int hour = local_time->tm_hour;        // 24-hour format*/
-/*    int minute = local_time->tm_min;*/
-/*    int second = local_time->tm_sec;*/
-/**/
-/*    std::fstream file("latest.log", std::ios::app); // open file in append mode*/
-/**/
-/*    if (!file.is_open()) {*/
-/**/
-/*        file.open("latest.log", std::ios::out); // creates the file in output mode if it does*/
-/*                                                // not exist / failed to open in append mode*/
-/*    }*/
-/**/
-/*    if (debug_check == false && level == LogType::DEBUG) {*/
-/*        return;*/
-/*    }*/
-/**/
-/*    file << "[" << year << "/" << month << "/" << day << "]"*/
-/*         << "[" << hour << ":" << minute << ":" << second << "]"*/
-/*         << formated_message << '\n';*/
-/**/
-/*    // this should end up printing like this*/
-/*    //[year/month/day] [hour:minute:second] <LogType> <message>*/
-/**/
-/*    file.close();*/
-/*}*/
+void Instance::log_to_file(std::string log_line) {
 
-// i think this works
-template void Instance::imchada_log<>(Instance::LogType, const std::string &,
-                                      int,
-                                      double,
-                                      float,
-                                      bool,
-                                      const char *,
-                                      std::string);
+    // get sys time
+    auto now = std::chrono::system_clock::now();
+    // convert time_point to time_t
+    std::time_t now_c = std::chrono::system_clock::to_time_t(now);
+    //    timezone stuff
+    std::tm *local_time = std::localtime(&now_c);
+
+    int day = local_time->tm_mday;
+    int month = local_time->tm_mon + 1;    // 0 indexed
+    int year = local_time->tm_year + 1900; // timestamped since 1900 so add 1900 to get current year
+    int hour = local_time->tm_hour;        // 24-hour format
+    int minute = local_time->tm_min;
+    int second = local_time->tm_sec;
+
+    std::fstream file("latest.log", std::ios::app); // open file in append mode
+
+    if (!file.is_open()) {
+
+        file.open("latest.log", std::ios::out); // creates the file in output mode if it does
+                                                // not exist / failed to open in append mode
+    }
+
+    file << "[" << year << "/" << month << "/" << day << "]"
+         << "[" << hour << ":" << minute << ":" << second << "]"
+         << log_line << '\n';
+
+    // this should end up printing like this
+    //[year/month/day] [hour:minute:second] <LogType> <message>
+
+    file.close();
+}
 
 std::string Instance::get_log_level_string(LogType level) {
     switch (level) {
 
     case LogType::MESSAGE:
-        return "[ImchadaEngine][LOG] ";
+        return "[ImchadaEngine][LOG]: ";
         break;
 
     case LogType::ERROR:
-        return "[ImchadaEngine][ERROR] ";
+        return "[ImchadaEngine][ERROR]: ";
         break;
 
     case LogType::WARNING:
-        return "[ImchadaEngine][WARN] ";
+        return "[ImchadaEngine][WARN]: ";
         break;
 
     case LogType::DEBUG:
         if (m_isDebug == true) {
-            return "[ImchadaEngine][DEBUG] ";
+            return "[ImchadaEngine][DEBUG]: ";
         } else {
             return "";
         }

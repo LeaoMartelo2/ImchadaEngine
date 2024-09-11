@@ -35,9 +35,21 @@ class Instance {
 
         // this causes a lot of headache
         template <typename... Args>
-        void imchada_log(LogType level, const std::string &format, Args... args);
+        void imchada_log(LogType level, const std::string &format_string, Args &&...args) {
 
-        std::string get_log_level_string(LogType level);
+            if (get_logging_state() == false) {
+                return;
+            }
+            if (get_debug_state() == false && level == LogType::DEBUG) {
+                return;
+            }
+
+            std::string formated_message = get_log_level_string(level);
+
+            formated_message += fmt::format(format_string, std::forward<Args>(args)...);
+
+            log_to_file(formated_message);
+        }
 
         // scene stuff
 
@@ -56,6 +68,10 @@ class Instance {
 
     private:
         void process_arguments(int argc, char *argv[]);
+
+        std::string get_log_level_string(LogType level);
+
+        void log_to_file(std::string log_line);
 
         void add_scene(const std::shared_ptr<Scene> &new_scene_ptr);
 

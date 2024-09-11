@@ -17,15 +17,15 @@ int main(int argc, char **argv) {
         /* test if checking/setting a Instance variable works correctly */
         std::cout << "Initialized debug state: " << ImchadaInstance->get_debug_state() << std::endl;
         std::cout << "Flipping debug state\n";
-        ImchadaInstance->set_debug(!ImchadaInstance->get_debug_state());
+        // ImchadaInstance->set_debug(!ImchadaInstance->get_debug_state());
         std::cout << "Current debug state: " << ImchadaInstance->get_debug_state() << std::endl;
 
-        /* test if logging system works correctly */
-        /*ImchadaInstance->imchada_log(IMCHADA_MESSAGE, "This is a Message log");*/
-        /*ImchadaInstance->imchada_log(IMCHADA_WARN, "This is a Warn log");*/
-        /*ImchadaInstance->imchada_log(IMCHADA_ERROR, "This is a Error log");*/
-        /*ImchadaInstance->imchada_log(IMCHADA_DEBUG,*/
-        /*"This is a Debug log, you shoud only be seeing this if you used -debug");*/
+        /*test if logging system works correctly */
+        ImchadaInstance->imchada_log(IMCHADA_MESSAGE, "This is a Message log");
+        ImchadaInstance->imchada_log(IMCHADA_WARN, "This is a Warn log");
+        ImchadaInstance->imchada_log(IMCHADA_ERROR, "This is a Error log");
+        ImchadaInstance->imchada_log(IMCHADA_DEBUG,
+                                     "This is a Debug log, you shoud only be seeing this if you used -debug");
 
         /* temp hack to check for Scene impelementation */
         int scene_id_zero = ImchadaInstance->create_scene();
