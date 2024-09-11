@@ -11,15 +11,15 @@ Instance::Instance(int argc, char *argv[]) {
 
     process_arguments(argc, argv);
 
-    imchada_log("########## Imchada Engine Instance Created ##########", IMCHADA_MESSAGE);
+    imchada_log(IMCHADA_MESSAGE, "########## Imchada Engine Instance Created ##########");
 
     if (m_isDebug) {
-        imchada_log("Instance initialized with debug mode enabled", IMCHADA_WARN);
+        imchada_log(IMCHADA_WARN, "Instance initialized with debug mode enabled");
         /*std::cout << "Hello, World from Instance constructor in debug mode\n";*/
     }
 }
 
 Instance::~Instance() {
 
-    imchada_log("########## Imchada Engine Instance Destroyed ##########", IMCHADA_MESSAGE);
+    imchada_log(IMCHADA_WARN, "########## Imchada Engine Instance Destroyed ##########");
 }

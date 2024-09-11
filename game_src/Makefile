@@ -1,9 +1,9 @@
 PROJECT_NAME = GAME
 
 CC = g++
-FLAGS = -Wall -O2 -lncurses -L../engine_lib/ -lImchadaEngine
+FLAGS = -Wall -O2 -lncurses -lfmt -L../engine_lib/ -lImchadaEngine
 #remove the need for LD_LIBRARY_PATH
-FINAL_FLAGS = -Wall -O2 -lncurses -L../engine_lib/ -lImchadaEngine -Wl,-rpath,../engine_lib/
+FINAL_FLAGS = ${FLAGS} -Wl,-rpath,../engine_lib/
 GAME_SRC = game_src/
 GAME_INCLUDE = include/
 GAME_OBJ = game_bin/
