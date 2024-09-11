@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
     /*attempt #1 of trying the schizo api method, where you hallucinate how you wanna use the API/lib first
      * and then you figure out implement it (its gonna suck bad) */
     {
-        std::shared_ptr<Instance> ImchadaInstance = std::make_shared<Instance>(argc, argv);
+        auto ImchadaInstance = std::make_shared<Instance>(argc, argv);
 
         /* test if the game include headers are ok*/
         std::cout << "Hello world from Main game file\n";
@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
         /* test if checking/setting a Instance variable works correctly */
         std::cout << "Initialized debug state: " << ImchadaInstance->get_debug_state() << std::endl;
         std::cout << "Flipping debug state\n";
-        // ImchadaInstance->set_debug(!ImchadaInstance->get_debug_state());
+        ImchadaInstance->set_debug(!ImchadaInstance->get_debug_state());
         std::cout << "Current debug state: " << ImchadaInstance->get_debug_state() << std::endl;
 
         /*test if logging system works correctly */
