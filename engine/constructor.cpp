@@ -21,5 +21,5 @@ Instance::Instance(int argc, char *argv[]) {
 
 Instance::~Instance() {
 
-    imchada_log(IMCHADA_WARN, "########## Imchada Engine Instance Destroyed ##########");
+    imchada_log(IMCHADA_MESSAGE, "########## Imchada Engine Instance Destroyed ##########");
 }

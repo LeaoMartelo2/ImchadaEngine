@@ -3,7 +3,6 @@
 #include <chrono>
 #include <cstring>
 #include <ctime>
-#include <fmt/core.h>
 #include <fstream>
 #include <memory>
 #include <string>

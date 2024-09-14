@@ -77,26 +77,4 @@ class Instance {
 
 }; // Instance
 
-class Asset {
-    public:
-        void load_asset();
-}; // Asset
-
-class GameMap {
-    private:
-        char map[31][81];
-
-    public:
-    private:
-        //
-    public:
-        GameMap(std::string filename);
-
-        char **get_map();
-
-        void visualOverride(char original_value, char replace_with);
-};
-
-// classless functions
-
 #endif //
