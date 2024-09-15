@@ -54,7 +54,7 @@ class Instance {
         // scene stuff
 
         /*this creates a Scene object, pushes it in to the Scene(s) buffer, and returns its id */
-        int create_scene();
+        int create_scene(std::string filename);
 
         long unsigned int get_scene_count(void);
 

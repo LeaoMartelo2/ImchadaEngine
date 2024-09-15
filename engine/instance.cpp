@@ -133,10 +133,15 @@ int Instance::load_scene(int scene_id) {
     }
 }
 
-int Instance::create_scene() {
+int Instance::create_scene(std::string filename) {
 
     // this creates all the Scene objects with the same name, surprised it didnt blow up yet
-    std::shared_ptr<Scene> scene_obj = std::make_shared<Scene>();
+    std::shared_ptr<Scene> scene_obj = std::make_shared<Scene>(filename);
+
+    if (scene_obj->failed_to_load()) {
+        imchada_log(IMCHADA_ERROR, "Failed to read from file {} on Scene creation", filename);
+        return -1;
+    }
 
     add_scene(scene_obj);
 
