@@ -1,4 +1,6 @@
-[2024/9/15][2:6:38][ImchadaEngine][LOG]  : ########## Imchada Engine Instance Created ##########
-[2024/9/15][2:6:38][ImchadaEngine][LOG]  : This is a Message log
-[2024/9/15][2:6:38][ImchadaEngine][WARN] : This is a Warn log
-[2024/9/15][2:6:38][ImchadaEngine][ERROR]: This is a Error log
+[2024/9/18][20:58:19][ImchadaEngine][LOG]  : ########## Imchada Engine Instance Created ##########
+[2024/9/18][20:58:19][ImchadaEngine][WARN] : Instance initialized with debug mode enabled
+[2024/9/18][20:58:19][ImchadaEngine][LOG]  : This is a Message log
+[2024/9/18][20:58:19][ImchadaEngine][WARN] : This is a Warn log
+[2024/9/18][20:58:19][ImchadaEngine][ERROR]: This is a Error log
+[2024/9/18][20:58:19][ImchadaEngine][DEBUG]: This is a Debug log, you shoud only be seeing this if you used -debug

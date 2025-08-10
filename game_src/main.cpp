@@ -4,10 +4,10 @@
 
 int main(int argc, char **argv) {
 
-    /*attempt #1 of trying the schizo api method, where you hallucinate how you wanna use the API/lib first
-     * and then you figure out implement it (its gonna suck bad) */
     {
         auto ImchadaInstance = std::make_shared<Instance>(argc, argv);
+
+        /*Scene first_scene = load_map("assets/maps/testmap");*/
 
         /*test if logging system works correctly */
         ImchadaInstance->imchada_log(IMCHADA_MESSAGE, "This is a Message log");
@@ -16,9 +16,15 @@ int main(int argc, char **argv) {
         ImchadaInstance->imchada_log(IMCHADA_DEBUG,
                                      "This is a Debug log, you shoud only be seeing this if you used -debug");
 
+        std::cout << "before create\n";
+
         int scene_id = ImchadaInstance->create_scene("assets/maps/testmap");
 
+        std::cout << "after create\n";
+
         ImchadaInstance->load_scene(scene_id);
+
+        std::cout << "after load\n";
     }
 
     std::cout << "Press enter to exit\n";

@@ -4,6 +4,7 @@
 #include <cstring>
 #include <ctime>
 #include <fstream>
+#include <iostream>
 #include <memory>
 #include <string>
 
@@ -120,6 +121,13 @@ long unsigned int Instance::get_scene_count() {
 int Instance::load_scene(int scene_id) {
     /*logic to load scene by its std::vector position  */
 
+    std::cout << "SAMERDA \n";
+    return 0;
+    /*
+    if (scene_id < 0) {
+        return 1;
+    }
+
     if (static_cast<long unsigned int>(scene_id) < scene_ptrs.size()) {
         scene_ptrs[scene_id]->load();
 
@@ -131,6 +139,7 @@ int Instance::load_scene(int scene_id) {
         return 1;
         // oh well ¯\_(ツ)_/¯
     }
+    */
 }
 
 int Instance::create_scene(std::string filename) {
